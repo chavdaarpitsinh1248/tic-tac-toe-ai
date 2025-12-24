@@ -1,8 +1,33 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.app {
+  text-align: center;
+  margin-top: 30px;
+}
+
+header h1 {
+  margin-bottom: 20px;
+}
+
+footer {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
 .board {
   display: grid;
   grid-template-columns: repeat(3, 80px);
   gap: 5px;
-  margin: 20px 0;
+  margin: 20px auto;
 }
 
 .square {
@@ -14,4 +39,19 @@
 
 .square.highlight {
   background-color: yellow;
+}
+
+.history {
+  margin-top: 20px;
+}
+
+.history ul {
+  list-style: none;
+  padding: 0;
+}
+
+.history button {
+  margin: 2px 0;
+  padding: 5px 10px;
+  cursor: pointer;
 }
