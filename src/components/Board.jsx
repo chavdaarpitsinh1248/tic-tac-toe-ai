@@ -1,7 +1,4 @@
-import Square from "./Square";
-import calculateWinner from "../utils/calculateWinner";
-
-export default function Board({ board, onSquareClick, disabled }) {
+export default function Board({ board, onSquareClick, disabled, lastMoveIndex }) {
     const result = calculateWinner(board);
     const winningLine = result?.winningLine || [];
 
@@ -11,6 +8,7 @@ export default function Board({ board, onSquareClick, disabled }) {
             value={board[idx]}
             onClick={() => !disabled && onSquareClick(idx)}
             highlight={winningLine.includes(idx)}
+            isLastMove={idx === lastMoveIndex}
         />
     );
 
