@@ -89,20 +89,14 @@ export default function Game() {
                 {winner
                     ? winner === "draw" ? "It's a Draw!" : `Winner: ${winner}`
                     : aiThinking
-                        ? "AI is thinking..."
-                        : `Next player: ${isXNext ? "X" : "O"}`}
+                        ? <div className="ai-thinking">
+                            AI is thinking<span className="dots">...</span>
+                        </div>
+                        : <div className="player-indicator">
+                            Next: <span className={isXNext ? "player-x" : "player-o"}>{isXNext ? "X" : "O"}</span>
+                        </div>
+                }
             </h3>
-
-            {aiThinking && (
-                <div className="ai-thinking">
-                    AI is thinking<span className="dots">...</span>
-                </div>
-            )}
-
-            <div className="player-indicator">
-                Next: <span className={isXNext ? "player-x" : "player-o"}>{isXNext ? "X" : "O"}</span>
-            </div>
-
 
             <Board board={currentBoard} onSquareClick={handleMove} disabled={winner || aiThinking} />
             <History history={history} jumpTo={jumpTo} />
