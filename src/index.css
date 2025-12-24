@@ -134,6 +134,11 @@ footer {
   }
 }
 
+.square.last-move {
+  border: 3px solid #4caf50;
+  /* Green border for last move */
+}
+
 @media (max-width: 500px) {
   .board {
     grid-template-columns: repeat(3, 70px);
