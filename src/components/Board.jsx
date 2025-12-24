@@ -1,3 +1,6 @@
+import Square from "./Square";
+import calculateWinner from "../utils/calculateWinner";
+
 export default function Board({ board, onSquareClick, disabled, lastMoveIndex }) {
     const result = calculateWinner(board);
     const winningLine = result?.winningLine || [];
