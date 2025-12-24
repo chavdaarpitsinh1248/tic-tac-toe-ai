@@ -15,8 +15,10 @@ export default function Game() {
     const result = calculateWinner(currentBoard);
     const winner = result?.winner;
 
+    const [lastMoveIndex, setLastMoveIndex] = useState(null);
+
     const handleMove = (index) => {
-        if (currentBoard[index] || winner || (aiThinking)) return;
+        if (currentBoard[index] || winner || aiThinking) return;
 
         const newBoard = [...currentBoard];
         newBoard[index] = isXNext ? "X" : "O";
@@ -25,7 +27,9 @@ export default function Game() {
         setHistory([...newHistory, newBoard]);
         setCurrentMove(newHistory.length);
         setIsXNext(!isXNext);
+        setLastMoveIndex(index); // Track last move
     };
+
 
     const jumpTo = (move) => {
         setCurrentMove(move);
