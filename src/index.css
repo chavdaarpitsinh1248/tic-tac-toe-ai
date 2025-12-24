@@ -70,3 +70,19 @@ footer {
   padding: 5px 10px;
   cursor: pointer;
 }
+
+.player-indicator {
+  margin: 15px 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.player-x {
+  color: #e53935;
+  /* Red for X */
+}
+
+.player-o {
+  color: #1e88e5;
+  /* Blue for O */
+}
