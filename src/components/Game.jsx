@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Board from "./Board";
 import History from "./History";
+import calculateWinner from "../utils/calculateWinner";
 
 export default function Game() {
     const [history, setHistory] = useState([Array(9).fill(null)]);
@@ -11,14 +12,18 @@ export default function Game() {
     const currentBoard = history[currentMove];
 
     const handleMove = (index) => {
-        // Placeholder for now
-        console.log("Clicked square:", index);
+        const board = history[currentMove];
+        if (board[index] || calculateWinner(board)) return; // Ignore if occupied or game over
+
+        const newBoard = [...board];
+        newBoard[index] = isXNext ? "X" : "O";
+
+        const newHistory = history.slice(0, currentMove + 1);
+        setHistory([...newHistory, newBoard]);
+        setCurrentMove(newHistory.length);
+        setIsXNext(!isXNext);
     };
 
-    const jumpTo = (move) => {
-        setCurrentMove(move);
-        setIsXNext(move % 2 === 0);
-    };
 
     return (
         <div className="game">
