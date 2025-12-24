@@ -36,6 +36,15 @@ export default function Game() {
         setIsXNext(move % 2 === 0);
     };
 
+    const resetGame = () => {
+        setHistory([Array(9).fill(null)]);
+        setCurrentMove(0);
+        setIsXNext(true);
+        setLastMoveIndex(null);
+        setAiThinking(false);
+    };
+
+
     // AI Effect
     useEffect(() => {
         if (mode === "PvAI" && !isXNext && !winner) {
@@ -71,6 +80,10 @@ export default function Game() {
                     Player vs AI
                 </label>
             </div>
+
+            <button className="reset-button" onClick={resetGame}>
+                Restart Game
+            </button>
 
             <h3>
                 {winner
