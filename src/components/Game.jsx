@@ -76,6 +76,12 @@ export default function Game() {
                         : `Next player: ${isXNext ? "X" : "O"}`}
             </h3>
 
+            {aiThinking && (
+                <div className="ai-thinking">
+                    AI is thinking<span className="dots">...</span>
+                </div>
+            )}
+
             <div className="player-indicator">
                 Next: <span className={isXNext ? "player-x" : "player-o"}>{isXNext ? "X" : "O"}</span>
             </div>
