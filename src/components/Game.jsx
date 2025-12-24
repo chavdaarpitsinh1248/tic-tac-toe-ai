@@ -76,7 +76,7 @@ export default function Game() {
                         : `Next player: ${isXNext ? "X" : "O"}`}
             </h3>
 
-            <Board board={currentBoard} onSquareClick={handleMove} />
+            <Board board={currentBoard} onSquareClick={handleMove} disabled={winner || aiThinking} />
             <History history={history} jumpTo={jumpTo} />
         </div>
     );
