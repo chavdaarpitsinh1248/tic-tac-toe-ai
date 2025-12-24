@@ -1,7 +1,7 @@
 import Square from "./Square";
 import calculateWinner from "../utils/calculateWinner";
 
-export default function Board({ board, onSquareClick }) {
+export default function Board({ board, onSquareClick, disabled }) {
     const result = calculateWinner(board);
     const winningLine = result?.winningLine || [];
 
@@ -9,7 +9,7 @@ export default function Board({ board, onSquareClick }) {
         <Square
             key={idx}
             value={board[idx]}
-            onClick={() => onSquareClick(idx)}
+            onClick={() => !disabled && onSquareClick(idx)}
             highlight={winningLine.includes(idx)}
         />
     );
